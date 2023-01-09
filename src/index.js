@@ -6,6 +6,7 @@ const port = 3000;
 
 app.get("/",(req,res) => {
    res.send("Hello SoiDiCode !!!");
+//    res.render(index.html);
 });
 app.get("/infor",(req,res) => {
    res.send("Hello Infor !!!");
