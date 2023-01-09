@@ -1,1 +1,8 @@
-hello mn
+ 1, Hello world 
+  hàm 'Get()'
+ // tạo ra router gồm path vs callback
+ // điều hướng website
+
+  Hàm 'listen()'
+ // tạo sự kiện lắng nghe theo port định sẵn
+
