@@ -14,3 +14,7 @@
  cài đặt 
   +, 'body-parser' : giống như middlewarse , sử lí dữ liệu req thành json => viết API
  +, file 'babelrc' : cấu hình babel
+
+  +, ConfigViewEngine : 
+    set view ENGINE
+    set cấu hình path của views

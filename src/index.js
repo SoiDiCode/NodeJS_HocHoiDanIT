@@ -1,11 +1,13 @@
-const express = require('express');
-// import express from 'express';
+// const express = require('express');
+ import express from 'express';
+ import configViewEngine from './configs/viewEngine.js';
 const app = express();
 const port = 3000;
 
+configViewEngine(app);
 
 app.get("/",(req,res) => {
-   res.send("Hello SoiDiCode !!!");
+   res.render("index.ejs");
 //    res.render(index.html);
 });
 app.get("/infor",(req,res) => {
