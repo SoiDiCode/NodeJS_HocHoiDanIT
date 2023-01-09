@@ -1,0 +1,23 @@
+{
+  "name": "nodejs_hochoidanit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SoiDiCode/NodeJS_HocHoiDanIT.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SoiDiCode/NodeJS_HocHoiDanIT/issues"
+  },
+  "homepage": "https://github.com/SoiDiCode/NodeJS_HocHoiDanIT#readme",
+  "devDependencies": {
+    "mysql2": "^2.3.3"
+  }
+}
