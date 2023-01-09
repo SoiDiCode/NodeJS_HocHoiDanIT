@@ -18,3 +18,8 @@
   +, ConfigViewEngine : 
     set view ENGINE
     set cấu hình path của views
+
+    +, 'static file ' : những file cho phép người dùng truy cập :'loadhinh' , ' customer css','js'
+     => File động
+     => Biến môi trường trong file : env
+     => cài thêm 'dotenv'

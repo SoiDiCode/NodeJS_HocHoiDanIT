@@ -2,7 +2,9 @@
  import express from 'express';
  import configViewEngine from './configs/viewEngine.js';
 const app = express();
-const port = 3000;
+// backup nếu bên trái là undefide thì lấy gtri ben phải
+// nếu ko cấu hình bên file .env
+const port = process.env.PORT || 3000;
 
 configViewEngine(app);
 
