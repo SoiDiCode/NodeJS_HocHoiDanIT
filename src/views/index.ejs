@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <!-- vì cấu hình static file nên khi dùng những file động nó sẽ tự đi vào public 
+    <!-- vì cấu hình static file nên khi dùng những file động nó sẽ tự đi vào public 
  nên ko cần phải ./public/css/style.css  -->
-  
- <link rel="stylesheet" href="/css/style.css">
+
+    <link rel="stylesheet" href="/css/style.css">
     <title>Document</title>
 </head>
+
 <body>
     <h1>DĂNG NHÂP</h1>
     <img src="/image/demo.png" alt="">
-    <form action="">
-        USER :  <input type="text"><br><br>
-        PASS :  <input type="password"><br><br>
-        <input type="button" value="SUBMIT">
-    </form>
+    <%=dataUser %>
 </body>
+
 </html>

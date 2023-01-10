@@ -3,6 +3,7 @@ import express from 'express';
 import configViewEngine from './configs/viewEngine.js';
 const app = express();
 import initWebRoute from './routes/web.js';
+// import connection from './configs/ConnectDB.js';
 // backup nếu bên trái là undefide thì lấy gtri ben phải
 // nếu ko cấu hình bên file .env
 const port = process.env.PORT || 3000;

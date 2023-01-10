@@ -24,3 +24,11 @@
      => Biến môi trường trong file : env
      => cài thêm 'dotenv'
  => Temples => Giúp chia code và sử dụng dễ dàng hơn
+
+ +, "Sequelize" : 1 ORM dành cho Node.js và io.js , giúp truy cập 1 cách dễ dàng đến CSDL
+  giống SCHEMA(MOGODB)
+
+ +, "CLI " : comand line interface  : giao tiếp dòng lệnh
+    cung cấp câu lệnh để thao tác 
+    
++, 'ORM' : thường dùng cac hàm build sẵn và khi có ánh xạ thì ms dùng
