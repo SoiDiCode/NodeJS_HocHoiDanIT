@@ -9,13 +9,125 @@
  nên ko cần phải ./public/css/style.css  -->
 
     <link rel="stylesheet" href="/css/style.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>NODE JS BASIC </title>
 </head>
 
 <body>
-    <h1>DĂNG NHÂP</h1>
-    <img src="/image/demo.png" alt="">
-    <%=dataUser %>
+    <div class="topnav">
+        <a class="active" href="/">Home</a>
+        <a href="#">ABOUT</a>
+        <a href="#">CONTACT</a>
+        <a href="/upload">Upload file</a>
+
+    </div>
+
+    <div>
+        <div class="w3-container">
+            <h2>List users Table</h2>
+
+            <table class="w3-table-all w3-hoverable">
+                <thead>
+                    <tr class="w3-light-grey">
+                        <th>STT</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <!-- <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>cam</td>
+                        <td>HN</td>
+                        <td><a href="#">DETAIL</a>
+                            <a href="#">UPDATE</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>cam</td>
+                        <td>HN</td>
+                        <td><a href="#">DETAIL</a>
+                            <a href="#">UPDATE</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>cam</td>
+                        <td>HN</td>
+                        <td><a href="#">DETAIL</a>
+                            <a href="#">UPDATE</a>
+                        </td>
+                    </tr>
+                </tbody> -->
+                <tbody>
+                    <%=dataUser.length %>
+
+                        <% for(let i=0; i < dataUser.length; i++) { %>
+                            <tr>
+                                <td>
+                                    <%= tilte +(i+1) %>
+                                        <!-- <%= dataUser[i].id %> -->
+                                </td>
+                                <td>
+                                    <%= dataUser[i].firstName %>
+                                </td>
+                                <td>
+                                    <%= dataUser[i].lastName %>
+                                </td>
+                                <td style="display: flex; gap: 15px;">
+                                    <button><a href="/users/<%= dataUser[i].id %> ">DETAIL</a></button>
+                                    <button><a href="/users/<%= dataUser[i].id %> ">UPDATE</a></button>
+                                    <button><a href="/users/<%= dataUser[i].id %> ">DELETE</a></button>
+                                    <!-- <form>
+                                        <a class="btn-detail" href="/detail/user/<%= dataUser[i].id %>"
+                                            target="_blank">Detail</a>
+                                    </form>
+                                    <form action="/edit-user/<%= dataUser[i].id %>" method="GET">
+                                        <button type="submit">Edit</button>
+                                    </form>
+                                    <form action="/delete-user" method="POST">
+                                        <input type="text" hidden value="<%= dataUser[i].id %>" name="userId" />
+                                        <button type="submit">Delete</button>
+                                    </form> -->
+                                </td>
+                            </tr>
+                            <% } %>
+                </tbody>
+
+
+            </table>
+        </div>
+        <div class="create-user-container">
+            <form action="/create-new-user" method="POST">
+                <div><b>Create a new user:</b></div>
+                <div>
+                    <label>First Name:</label>
+                    <input type="text" name="firstName" />
+                </div>
+                <div>
+                    <label>Last Name:</label>
+                    <input type="text" name="lastName" />
+                </div>
+                <div>
+                    <label>Email:</label>
+                    <input type="email" name="email" />
+                </div>
+                <div>
+                    <label>Address:</label>
+                    <input type="text" name="address" />
+                </div>
+                <div>
+                    <button type="submit" class="btn-submit">Submit</button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+    <!-- <%= dataUser %> -->
+
 </body>
 
 </html>

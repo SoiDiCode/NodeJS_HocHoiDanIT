@@ -15,7 +15,7 @@ class HomeController {
                 // console.log(fields); // fields contains extra meta data about results, if available
                 results.map((row) => { data.push(row) })
                 console.log(data);
-                res.render("index.ejs", { dataUser: JSON.stringify(data) });
+                res.render("index.ejs", { dataUser: data, tilte: 'Sản phẩm ' });
             }
         );
         // console.log(typeof (data));
