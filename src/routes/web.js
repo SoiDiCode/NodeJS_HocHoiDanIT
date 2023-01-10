@@ -8,7 +8,7 @@ let router = express.Router();
 const initWebRoute = (app) => {
     router.get("/", homecontroller.index);
     router.get("/users/:path/:slug", homecontroller.chucnang);
-
+    router.post("/create-new-user", homecontroller.create);
     // Path là tiền tố thêm trước route
     //VD : nếu "/" => /infor
     // nếu "/abc" => /abc/infor

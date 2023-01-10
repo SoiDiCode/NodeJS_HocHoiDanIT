@@ -8,6 +8,9 @@ import initWebRoute from './routes/web.js';
 // nếu ko cấu hình bên file .env
 const port = process.env.PORT || 3000;
 
+// lấy data phía clint lên server
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 // setup viewEngine
 configViewEngine(app);

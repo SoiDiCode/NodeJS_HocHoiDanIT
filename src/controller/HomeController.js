@@ -7,8 +7,8 @@ class HomeController {
     async index(req, res) {
 
         const [rows, fields] = await connection.execute('SELECT * FROM users ');
-        console.log("row ", rows);
-        console.log("fields ", fields);
+        // console.log("row ", rows);
+        // console.log("fields ", fields);
         res.render("index.ejs", { dataUser: rows, tilte: 'Sản phẩm ' })
     };
 
@@ -22,16 +22,31 @@ class HomeController {
             // trả về 1 mảng mảng rows
             const [rows] = await connection.execute('SELECT * FROM users where id = ?', [id]);
             let record1 = rows[0];
-            console.log(record1);
             return res.render("detail.ejs", { record: record1 });
             //rows phải là 1 mảng 
             // trả về chuỗi JSON.stringify(rows)
 
         }
-        if (path == "delete") return res.send("Đây là trang xóa")
+        if (path == "delete") {
+            const [rows] = await connection.execute('Delete from users where id = ?', [id]);
+            console.log(rows.affectedRows);
+            res.redirect("back");
+        }
         else return res.send("Đây là trang update")
 
     }
+
+
+    async create(req, res) {
+        var firstName = req.body.firstName;
+        var lastName = req.body.lastName;
+        var email = req.body.email;
+        var address = req.body.address;
+        const [rows] = await connection.execute('insert into users(firstName,lastName,email,address) values(?,?,?,?)', [firstName, lastName, email, address]);
+        console.log(rows.affectedRows);
+        res.redirect("/");
+    };
+
 }
 export default new HomeController();
 
