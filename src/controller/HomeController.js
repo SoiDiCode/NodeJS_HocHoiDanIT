@@ -4,32 +4,33 @@ import connection from '../configs/ConnectDB.js';
 
 class HomeController {
 
-    index(req, res) {
-        var data = [];
-        connection.query(
-            'SELECT * FROM `users` ',
-            function (err, results, fields) {
-                console.log('>>>>>Check mysql');
-                // console.log(typeof (results));
-                // console.log(results); // results contains rows returned by server
-                // console.log(fields); // fields contains extra meta data about results, if available
-                results.map((row) => { data.push(row) })
-                console.log(data);
-                res.render("index.ejs", { dataUser: data, tilte: 'Sản phẩm ' });
-            }
-        );
-        // console.log(typeof (data));
-        // console.log(data);
+    async index(req, res) {
 
-
-        // data = repo.selectALL.
-        // Gán dữ liệu xuống view qua dataUser
-        // Chuyển kiểu từ Object sang String qua JSON.stringify
-        // res.render("index.ejs", { dataUser: JSON.stringify(data) });
+        const [rows, fields] = await connection.execute('SELECT * FROM users ');
+        console.log("row ", rows);
+        console.log("fields ", fields);
+        res.render("index.ejs", { dataUser: rows, tilte: 'Sản phẩm ' })
     };
 
-    infor(req, res) {
-        res.send("Hello Infor !!!");
+    async chucnang(req, res, err) {
+        // slug là biến được khai báo trong path trả về
+        // var id = req.params.slug;
+        var path = req.params.path;
+        var id = req.params.slug;
+        if (path == "detail") {
+            // if (err) return res.render("error.ejs");
+            // trả về 1 mảng mảng rows
+            const [rows] = await connection.execute('SELECT * FROM users where id = ?', [id]);
+            let record1 = rows[0];
+            console.log(record1);
+            return res.render("detail.ejs", { record: record1 });
+            //rows phải là 1 mảng 
+            // trả về chuỗi JSON.stringify(rows)
+
+        }
+        if (path == "delete") return res.send("Đây là trang xóa")
+        else return res.send("Đây là trang update")
+
     }
 }
 export default new HomeController();

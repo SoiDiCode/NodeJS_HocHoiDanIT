@@ -35,52 +35,24 @@
                         <th>Actions</th>
                     </tr>
                 </thead>
-                <!-- <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>cam</td>
-                        <td>HN</td>
-                        <td><a href="#">DETAIL</a>
-                            <a href="#">UPDATE</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>cam</td>
-                        <td>HN</td>
-                        <td><a href="#">DETAIL</a>
-                            <a href="#">UPDATE</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>cam</td>
-                        <td>HN</td>
-                        <td><a href="#">DETAIL</a>
-                            <a href="#">UPDATE</a>
-                        </td>
-                    </tr>
-                </tbody> -->
                 <tbody>
-                    <%=dataUser.length %>
-
-                        <% for(let i=0; i < dataUser.length; i++) { %>
-                            <tr>
-                                <td>
-                                    <%= tilte +(i+1) %>
-                                        <!-- <%= dataUser[i].id %> -->
-                                </td>
-                                <td>
-                                    <%= dataUser[i].firstName %>
-                                </td>
-                                <td>
-                                    <%= dataUser[i].lastName %>
-                                </td>
-                                <td style="display: flex; gap: 15px;">
-                                    <button><a href="/users/<%= dataUser[i].id %> ">DETAIL</a></button>
-                                    <button><a href="/users/<%= dataUser[i].id %> ">UPDATE</a></button>
-                                    <button><a href="/users/<%= dataUser[i].id %> ">DELETE</a></button>
-                                    <!-- <form>
+                    <% for(let i=0; i < dataUser.length; i++) { %>
+                        <tr>
+                            <td>
+                                <%= tilte +(i+1) %>
+                                    <!-- <%= dataUser[i].id %> -->
+                            </td>
+                            <td>
+                                <%= dataUser[i].firstName %>
+                            </td>
+                            <td>
+                                <%= dataUser[i].lastName %>
+                            </td>
+                            <td style="display: flex; gap: 15px;">
+                                <button><a href="/users/detail/<%= dataUser[i].id %> ">DETAIL</a></button>
+                                <button><a href="/users/update/<%= dataUser[i].id %> ">UPDATE</a></button>
+                                <button><a href="/users/delete/<%= dataUser[i].id %> ">DELETE</a></button>
+                                <!-- <form>
                                         <a class="btn-detail" href="/detail/user/<%= dataUser[i].id %>"
                                             target="_blank">Detail</a>
                                     </form>
@@ -91,9 +63,9 @@
                                         <input type="text" hidden value="<%= dataUser[i].id %>" name="userId" />
                                         <button type="submit">Delete</button>
                                     </form> -->
-                                </td>
-                            </tr>
-                            <% } %>
+                            </td>
+                        </tr>
+                        <% } %>
                 </tbody>
 
 

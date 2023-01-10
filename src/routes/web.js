@@ -7,7 +7,7 @@ let router = express.Router();
 
 const initWebRoute = (app) => {
     router.get("/", homecontroller.index);
-    router.get("/infor", homecontroller.infor);
+    router.get("/users/:path/:slug", homecontroller.chucnang);
 
     // Path là tiền tố thêm trước route
     //VD : nếu "/" => /infor

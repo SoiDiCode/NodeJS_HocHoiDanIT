@@ -1,12 +1,14 @@
-import mysql from 'mysql2'
+import mysql from 'mysql2/promise'
 
 
-const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '123456789aA@',
-    database: 'nodejsbasic'
-});
+// const connection = mysql.createConnection({
+//     host: 'localhost',
+//     user: 'root',
+//     password: '123456789aA@',
+//     database: 'nodejsbasic'
+// });
+const connection = await mysql.createConnection({ host: 'localhost', user: 'root', database: 'nodejsbasic', password: '123456789aA@' });
+
 
 connection.connect((err) => {
     if (err) throw err;

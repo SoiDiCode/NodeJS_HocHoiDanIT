@@ -26,3 +26,18 @@ body {
     background-color: #04AA6D;
     color: white;
 }
+
+a:link {
+    text-decoration: none;
+    color: #04AA6D;
+}
+
+button:hover {
+    background-color: green;
+    border-style: solid;
+}
+
+button {
+    background-color: white;
+    /* border-radius: 1px 1px green; */
+}
