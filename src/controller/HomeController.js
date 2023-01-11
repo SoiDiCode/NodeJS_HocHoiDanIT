@@ -12,27 +12,18 @@ class HomeController {
         res.render("index.ejs", { dataUser: rows, tilte: 'Sản phẩm ' })
     };
 
-    async chucnang(req, res, err) {
+    async detail(req, res, err) {
         // slug là biến được khai báo trong path trả về
-        // var id = req.params.slug;
-        var path = req.params.path;
-        var id = req.params.slug;
-        if (path == "detail") {
-            // if (err) return res.render("error.ejs");
-            // trả về 1 mảng mảng rows
-            const [rows] = await connection.execute('SELECT * FROM users where id = ?', [id]);
-            let record1 = rows[0];
-            return res.render("detail.ejs", { record: record1 });
-            //rows phải là 1 mảng 
-            // trả về chuỗi JSON.stringify(rows)
 
-        }
-        if (path == "delete") {
-            const [rows] = await connection.execute('Delete from users where id = ?', [id]);
-            console.log(rows.affectedRows);
-            res.redirect("back");
-        }
-        else return res.send("Đây là trang update")
+        // var path = req.params.path;
+        var id = req.params.id;
+        // if (err) return res.render("error.ejs");
+        // trả về 1 mảng mảng rows
+        const [rows] = await connection.execute('SELECT * FROM users where id = ?', [id]);
+        let record1 = rows[0];
+        return res.render("detail.ejs", { record: record1 });
+        //rows phải là 1 mảng 
+        // trả về chuỗi JSON.stringify(rows)
 
     }
 
@@ -45,6 +36,44 @@ class HomeController {
         const [rows] = await connection.execute('insert into users(firstName,lastName,email,address) values(?,?,?,?)', [firstName, lastName, email, address]);
         console.log(rows.affectedRows);
         res.redirect("/");
+    };
+
+    async delete(req, res) {
+        var id = req.body.id;
+        console.log("id rows select ", id);
+        // var lastName = req.body.lastName;
+        // var email = req.body.email;
+        // var address = req.body.address;
+        const [rows] = await connection.execute('delete from users where id = ?', [id]);
+        console.log(rows.affectedRows);
+        res.redirect("/");
+        // res.send("đây là trang xóa")
+    };
+    async update(req, res) {
+        var id = req.params.id;
+        console.log("id rows select ", id);
+        const [rows] = await connection.execute('SELECT * FROM users where id = ?', [id]);
+        let data = rows[0];
+        res.render("updates.ejs", { record: data });
+        // res.send("đây là trang xóa")
+    };
+    async postUpdate(req, res) {
+        var id = req.body.id;
+        var firstName = req.body.firstName;
+        var lastName = req.body.lastName;
+        var email = req.body.email;
+        var address = req.body.address;
+        console.log("id rows select ", id);
+        const [rows] = await connection.execute(
+            'update users ' +
+            'set firstName = ? ,' +
+            ' lastName = ? ,' +
+            ' email = ? ,' +
+            ' address = ? ' +
+            'where id = ? ', [firstName, lastName, email, address, id]);
+        console.log("số dong thay đổi ", rows.affectedRows);
+        res.redirect("/");
+        // res.send("đây là trang xóa")
     };
 
 }

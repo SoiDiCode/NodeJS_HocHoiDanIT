@@ -51,8 +51,12 @@
                             <td style="display: flex; gap: 15px;">
                                 <button><a href="/users/detail/<%= dataUser[i].id %> ">DETAIL</a></button>
                                 <button><a href="/users/update/<%= dataUser[i].id %> ">UPDATE</a></button>
-                                <button onclick=" xoa()"><a
-                                        href="/users/delete/<%= dataUser[i].id %> ">DELETE</a></button>
+                                <form action="/users/delete" method="post" onsubmit="return xoa()">
+                                    <input hidden type="text" value="<%= dataUser[i].id %>" name="id">
+                                    <button type="submit">Delete</button>
+                                </form>
+                                <!-- <button onclick=" xoa()"><a
+                                        href="/users/delete/<%= dataUser[i].id %> ">DELETE</a></button> -->
                                 <!-- <form>
                                         <a class="btn-detail" href="/detail/user/<%= dataUser[i].id %>"
                                             target="_blank">Detail</a>
@@ -102,7 +106,7 @@
     <script>
         function xoa() {
             var kq = confirm("Ban chắc xóa chứ ?");
-            console.log(kq);
+            return kq;
         }
 
     </script>
